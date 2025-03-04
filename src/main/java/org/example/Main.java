@@ -57,7 +57,7 @@ class Main {
 
         // `!` => 반전
         if ( !(!c) ) {
-            System.out.println("거짓5");
+            System.out.println("거짓4");
         }
 
         boolean d = true;
@@ -67,11 +67,46 @@ class Main {
         }
 
         if ( 20 > 2 && 10 > 3 && true != false && 10 != 10 ) {// and 연산자 임!
-            System.out.println("거짓6");
+            System.out.println("거짓5");
         }
 
         if ( 10 != 10 || 10 < 2 ) {// or 연산자임!! && = and || = or 헷갈리지 말것!!!
-            System.out.println("거짓7");
+            System.out.println("거짓6");
+        }
+        int age = 9;
+
+        if (age >= 1 && age <= 9) {
+            System.out.println("유아/아동");
+        }
+        if (age >= 10 && age <= 19) {
+            System.out.println("10대");
+        }
+        if (age >= 20 && age <= 29) {
+            System.out.println("20대");
+        }
+        if (age >= 30 && age <= 39) {
+            System.out.println("30대");
+        }
+        if (age >= 40) {
+            System.out.println("40대 이상");
+        }
+//------------양립할수 없는 다중 if문 ------------------
+        int ageone = 22;
+
+        if (ageone >= 1 && ageone <= 9) {
+            System.out.println("유아/아동");
+        }
+        else if (ageone >= 10 && ageone <= 19) {
+            System.out.println("10대");
+        }
+        else if (ageone >= 20 && ageone <= 29) {
+            System.out.println("20대");
+        }
+        else if (ageone >= 30 && ageone <= 39) {
+            System.out.println("30대");
+        }
+        else {
+            System.out.println("40대 이상");
         }
     }
 }
