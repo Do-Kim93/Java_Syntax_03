@@ -12,9 +12,9 @@ class Main {
         System.out.println("8 * 4 = " + 8*4);
         System.out.println("8 * 5 = " + 8*5);
         System.out.println("8 * 6 = " + 8*6);
-        System.out.println("8 * 7 = 56");
-        System.out.println("8 * 8 = 64");
-        System.out.println("8 * 9 = 72");
+        System.out.println("8 * 7 = " + 8*7);
+        System.out.println("8 * 8 = " + 8*8);
+        System.out.println("8 * 9 = " + 8*9);
 
         //---문제2번----
         // 문제 : dan 변수의 값에 따라 첫번째로 곱하는 수가 변하게 해주세요.
