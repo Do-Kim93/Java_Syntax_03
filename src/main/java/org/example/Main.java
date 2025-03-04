@@ -1,109 +1,55 @@
 package org.example;
 
-import org.w3c.dom.ls.LSOutput;
+// 문제 : 할인 대상인지 아닌지 출력해주세요.
+// 조건 : 나이가 19세 이하이거나 60세 이상이면 할인 대상입니다.
+// 조건 : 출력예시 처럼 출력되어야 합니다.
+// 조건 : `구현시작` 부분만 수정 할 수 있습니다.
+// 조건 : 4가지 이상의 방법으로 풀어야 합니다.
+// 조건 : 그 중 2가지 방법은 `&&, ||`없이 풀어야 합니다.
 
-//글자 주황색은 예약어, 키워드
 class Main {
     public static void main(String[] args) {
-        if (true) {
-            System.out.println("참");
-        }
+        int age = 65; // 이 값을 바꿔가면서 실행해보세요.
 
-        if (false) {
-            System.out.println("거짓");
-        }
+        System.out.println("당신의 나이는 " + age + "살 입니다.");
 
-        int a = 10;
-
-        // `==` => 같다.
-        if (a == 10) {
-            System.out.println("참1");
-        }
-
-        // `!=` => 같지 않다.
-        if (a != 10) {
-            System.out.println("거짓1");
-        }
-
-        if (a > 10) {
-            System.out.println("거짓2");
-        }
-
-        if (a >= 10) {
-            System.out.println("참2");
-        }
-
-        int b = 10;
-
-        if (a == b) {
-            System.out.println("참3");
-        }
-
-        // boolean c => c 에는 오직 true/false 만 담을 수 있다.
-        boolean c = a != b;
-
-        if (c) {
-            System.out.println("거짓3");
-        }
-
-        if (c == false) {
-            System.out.println("참4");
-        }
-
-        // `!` => 반전
-        if (!c) {
-            System.out.println("참5");
-        }
-
-        // `!` => 반전
-        if (!(!c)) {
-            System.out.println("거짓4");
-        }
-
-        boolean d = true;
-
-        if (c != d) {
-            System.out.println("참6");
-        }
-
-        if (20 > 2 && 10 > 3 && true != false && 10 != 10) {// and 연산자 임!
-            System.out.println("거짓5");
-        }
-
-        if (10 != 10 || 10 < 2) {// or 연산자임!! && = and || = or 헷갈리지 말것!!!
-            System.out.println("거짓6");
-        }
-        int age = 9;
-
-        if (age >= 1 && age <= 9) {
-            System.out.println("유아/아동");
-        }
-        if (age >= 10 && age <= 19) {
-            System.out.println("10대");
-        }
-        if (age >= 20 && age <= 29) {
-            System.out.println("20대");
-        }
-        if (age >= 30 && age <= 39) {
-            System.out.println("30대");
-        }
-        if (age >= 40) {
-            System.out.println("40대 이상");
-        }
-//------------양립할수 없는 다중 if문 ------------------
-        int ageone = 22;
-
-        if (ageone < 10) {
-            System.out.println("유아/아동");
-        } else if (ageone < 20) {
-            System.out.println("10대");
-        } else if (ageone < 30) {
-            System.out.println("20대");
-        } else if (ageone < 40) {
-            System.out.println("30대");
+        // 구현시작
+        //-----------방법1--------------
+        if (age <= 19 || age >= 60) {
+            System.out.println("할인대상입니다.");
         } else {
-            System.out.println("40대 이상");
+            System.out.println("할인 대상이 아닙니다.");
         }
+        //-----------방법2--------------
+
+        if (age > 0 && age <= 19 || age >= 60) {
+            System.out.println("할인대상입니다.");
+        } else {
+            System.out.println("할인 대상이 아닙니다.");
+        }
+//        -----------방법3--------------
+        if (age < 20) {
+            System.out.println("할인대상입니다.");
+        } else if (age > 59) {
+            System.out.println("할인대상입니다.");
+        } else {
+            System.out.println("할인 대상이 아닙니다.");
+        }
+//        -----------방법4--------------
+        if (age < 20) {
+            System.out.println("할인대상입니다.");
+        } else if (age < 30) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age < 40) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age < 50) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else if (age < 60) {
+            System.out.println("할인 대상이 아닙니다.");
+        } else {
+            System.out.println("할인대상입니다.");
+        }
+
     }
 }
 
