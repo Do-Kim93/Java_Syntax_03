@@ -1,21 +1,19 @@
 package org.example;
 
 import java.util.Scanner;
-// 코드업 1026문제
+
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
         int b = sc.nextInt();
-        String a = Integer.toString(b);
-        String[] c = a.split("");
-//        System.out.println(c.length);
-        for(int i=0; i <= c.length-1; i++){
-            System.out.print("["+c[i]);
-            for(int l = c.length-2; l >= i; l--){
-                System.out.print(0);
-            }
-            System.out.print("]");
-            System.out.println();
-        }
+        System.out.println(a>b?a:b);
+        //신기하게 경고가 떠서 눌러보니 Math.min이라는걸 사용하라고 한다
+        // 써보니 입력받은 두수 중 작은 숫자를 출력해준다
+        // 여기서 알수있는점은 min이 작은숫자니까 max는 큰숫자라를 출력해줄것이다.
+
+
     }
 }
+
+
