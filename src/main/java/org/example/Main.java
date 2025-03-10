@@ -4,21 +4,30 @@ import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
-        boolean[] arr1 = new boolean[] {true, false, true};//1번 문제
-//        boolean[] arr1 = {true, false, true}; 굳이 new 안쓰고도 선언가능!
-        double[] arr2 = new double[] {3.14, 7.77, 11.11};//2번 문제
-        //double[] arr2 = {3.14, 7.77, 11.11}; 굳이 new 안쓰고도 선언가능!
-        int[] arr3 = new int[10];//3번 문제
-        System.out.printf("%b,%b,%b\n",arr1[0],arr1[1],arr1[2]);//1번 문제
-        System.out.printf("%.2f,%.2f,%.2f\n",arr2[0],arr2[1],arr2[2]);//2번 문제
-        for(int i=0; i <= arr3.length-1; i++){//3번 문제
-            arr3[i] = i+1;
-            System.out.print(arr3[i]);
-            if(i != 9){
-                System.out.print(", ");
-            }
-        }
+//  문제 - 자동차 객체를 담을 변수를 만들어주세요.
+        Car car1 = new Car();
+//  문제 - 자동차 객체를 만들고 변수에 담아주세요.
+        car1.car_color = "black";
+        car1.car_model = "k9";
+        car1.car_price = "1억";
+        car1.car_year = "25년식";
+        car1.max_speed = 10;
+        car1.run(10);
     }
+}
+
+//문제 - 자동차 설계도를 만들어주세요.
+class Car {
+    public String car_model;
+    public String car_price;
+    public String car_color;
+    public String car_year;
+    public int max_speed;
+    //메서드 부분
+    public void run(int time){
+        System.out.println(this.car_color + " " + this.car_model + "이 " + this.max_speed + "/s의 속도로" + time + " 초간 달려 " + this.max_speed * time + "미터 달렸습니다.");
+    }
+
 }
 
 
