@@ -12,6 +12,7 @@ class Main {
         car1.car_price = "1억";
         car1.car_year = "25년식";
         car1.max_speed = 250;
+        car1.run(10);
 
         Car car2 = new Car();
 //  문제 - 자동차 객체마다 서로 다른 최고속력를 가지도록 해주세요.
@@ -20,24 +21,31 @@ class Main {
         car2.car_price = "4500";
         car2.car_year = "25년식";
         car2.max_speed = 220;
+        car1.run(30);
 
+        사람 a = new 사람();
+        a.age =23;
+        a.name = "김철수";
+        a.isMarried = false;
+        a.introduce();
 
-        Car car3 = new Car();
-        car3.car_color = "blue";
-        car3.car_model = "k3";
-        car3.car_price = "3000";
-        car3.car_year = "25년식";
-        car3.max_speed = 200;
+        사람 b = new 사람();
+        b.age =24;
+        b.name = "홍길동";
+        b.isMarried = true;
+        b.introduce();
+    }
+}
+class 사람 {
+    int age;
+    String name;
+    boolean isMarried;
 
-
-        Player player1 = new Player();
-        player1.name = "홍삼동";
-        player1.age = 2500;
-        player1.job = "신선";
-
-        car1.run(10);
-        car2.run(10);
-        car3.run(10);
+    void introduce(){
+        System.out.println("===자기소개===");
+        System.out.printf("나의 이름은 : %s\n", this.name);
+        System.out.printf("나의 나이는 : %d\n", this.age);
+        System.out.printf("나의 결혼 여부는 : %b\n", this.isMarried);
 
     }
 }
@@ -55,12 +63,6 @@ class Car {
         System.out.println(this.car_color + " " + this.car_model + "이 " + this.max_speed + "/s의 속도로" + time + " 초간 달려 " + this.max_speed * time + "미터 달렸습니다.");
     }
 
-}
-
-class Player {
-    String name;
-    int age;
-    String job;
 }
 
 
