@@ -4,66 +4,55 @@ import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
-//  문제 - 자동차 객체를 담을 변수를 만들어주세요.
-        Car car1 = new Car();
-//  문제 - 자동차 객체를 만들고 변수에 담아주세요.
-        car1.car_color = "black";
-        car1.car_model = "k9";
-        car1.car_price = "1억";
-        car1.car_year = "25년식";
-        car1.max_speed = 250;
-        car1.run(10);
-
-        Car car2 = new Car();
-//  문제 - 자동차 객체마다 서로 다른 최고속력를 가지도록 해주세요.
-        car2.car_color = "red";
-        car2.car_model = "k5";
-        car2.car_price = "4500";
-        car2.car_year = "25년식";
-        car2.max_speed = 220;
-        car1.run(30);
-
-        사람 a = new 사람();
-        a.age =23;
-        a.name = "김철수";
-        a.isMarried = false;
-        a.introduce();
-
-        사람 b = new 사람();
-        b.age =24;
-        b.name = "홍길동";
-        b.isMarried = true;
-        b.introduce();
-    }
-}
-class 사람 {
-    int age;
-    String name;
-    boolean isMarried;
-
-    void introduce(){
-        System.out.println("===자기소개===");
-        System.out.printf("나의 이름은 : %s\n", this.name);
-        System.out.printf("나의 나이는 : %d\n", this.age);
-        System.out.printf("나의 결혼 여부는 : %b\n", this.isMarried);
-
+        //1 자동차 클래스안의 달리다 메서드를 호출하기 위한 기본형
+        자동차 a = new 자동차();
+        a.달리다();
+        //2 자동차 클래스안의 달리다 메서드를 호출하기 위한 기본형
+        new 자동차().달리다();
+        //3 자동차 클래스의 달리다 메서드가 스테틱 메서드로 선언되어 객체 생성없이도 호출이 가능하다.
+        자동차.달리다();
     }
 }
 
-//문제 - 자동차 설계도를 만들어주세요.
-class Car {
-    String car_model;
-    String car_price;
-    String car_color;
-    String car_year;
-    int max_speed;
-
-    // 문제 : 각각의 자동차가 서로 다른 최고속력으로 달리게 해주세요.
-    void run(int time) {
-        System.out.println(this.car_color + " " + this.car_model + "이 " + this.max_speed + "/s의 속도로" + time + " 초간 달려 " + this.max_speed * time + "미터 달렸습니다.");
+class 자동차 {
+    //static으로 변수나 메서드를 선언하면 main 클래스가 실행될때 어디에 있든 생성된다.
+    static void 달리다() {
+        System.out.println("달리다");
     }
-
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        MyClass a = new MyClass();
+//        a.hi();//이 메서드를 호출 하기 위해서는 MyClass 객체를 생성해 메서드 호출을 해야함
+//
+//        new MyClass().hi();
+//
+//        funA();
+//    }
+//
+//    static void funA(){
+//        System.out.println("실행1");
+//    }
+//}
+//
+//class MyClass{
+//    void hi(){
+//        System.out.println("실행2");
+//    }
+//}
