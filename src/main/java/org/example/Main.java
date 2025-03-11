@@ -1,47 +1,25 @@
 package org.example;
 
-import java.util.Scanner;
-// 표준 입력장치로 숫자를 입력받아 합을 구하는 함수 만들기
+// Main 클래스 안의 내용을 올바르게 수정해주세요.
+
 class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("숫자를 입력하세요");
-        int a = sc.nextInt();
-        System.out.println(sum.sum1(a));
-        System.out.println("숫자를 입력하세요");
-        int b = sc.nextInt();
-        System.out.println("숫자를 입력하세요");
-        int c = sc.nextInt();
-        System.out.println(sum.sum2(b, c));
-
+//        int 자동차 = new 자동차; 틀린구문 틀린이유 타입도 맞지않고 ()도 없음
+        자동차 붕붕이 = new 자동차();
+//        자동차.달립니다(); 틀린이유 매서드명도 다르고 자동차 class에 있는 메서드는 스태틱이 아니라서 객체 생성없이는 호출 불가능 해결 방벙 2개 있음
+        //1번 해결방법
+        붕붕이.달리다();
+        //2번 해결방법
+        자동차.달립니다();
     }
 }
 
-//        문제 - 1부터 n까지의 합을 반환하는 함수
-class sum {
-
-    static int sum1(int i) {
-        int sum = 0;
-        for (int a = 1; a <= i; a++) {
-            sum += a;
-        }
-        System.out.println("1부터" + i + "까지 더한 합은");
-        return sum;
+class 자동차 {
+    void 달리다() {
+        System.out.println("자동차가 달립니다.");
     }
-
-    //        문제 - n부터 m까지의 합을 반환하는 함수
-    static int sum2(int b, int i) {
-        int sum = 0;
-        if (b > i) {
-            for (int l = b; i <= l; i++) {
-                sum += i;
-            }
-        } else {
-            for (int l = i; b <= l; b++) {
-                sum += b;
-            }
-        }
-        System.out.println("1부터" + i + "까지 더한 합은");
-        return sum;
+    //스태틱 매서드로 선언하면 객체 생성없이 클래스명으로 접근이 가능해져서 별도의 객체 생성없이 사용가능
+    static void 달립니다() {
+        System.out.println("자동차가 달립니다.1");
     }
 }
