@@ -12,32 +12,25 @@ public class Main {
         사람 a사람4 = 로봇.get사람4();
         사람 a사람5 = 로봇.get사람5(123, false);
         로봇.get사람6(123, false);
-
     }
 }
-
 class 사람 {
     int 학번;
     boolean 출결;
 }
-
 class 로봇 {
     static int get정수() { //new로봇 안했으니까 스태틱임
         return 0;
     }
-
     static boolean get논리() {
         return true;
     }
-
     static 사람 get사람() {
         return null;
     }
-
     static 사람 get사람2() {
         return new 사람();//리턴값으로 객체를 넘김
     }
-
     static 사람 get사람3() {
         사람 a사람 = null;
         return a사람;
