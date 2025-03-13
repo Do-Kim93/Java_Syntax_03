@@ -1,25 +1,18 @@
 package org.example;
 
-import java.util.Arrays;
-import java.util.Objects;
 
 public class code {
 
     public static void main(String[] args) {
+        String as = "asdf";
+        String[] ass = as.split("");
+        String[] add;
+        for (int i=0; i <= ass.length-1; i++){
+            for(int l=0; l <= 3; l++){
 
-    }
-}
-class Solution {
-    public String[] solution(String my_string, String letter) {
-        String[] a = my_string.split("");
-        String[] b = letter.split("");
-        for(int i = 0; i <= a.length-1; i++){
-            if(a[i].equals(b[0])){
-                a[i]="";
             }
         }
-        String as = new String(Arrays.toString(a));
-        return a;
+        System.out.println(ass.length);
     }
 }
 
