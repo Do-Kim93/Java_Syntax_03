@@ -3,26 +3,16 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
-//getter setter 사용법
+//Exception e 예외처리 클래스중 가장 상위인 부모 클래스임 그래서 어떤오류가 발생할지 확실 모르면 이거를 catch문의 인자 값에 넣으면 됨
 public class Main {
     public static void main(String[] args) {
-        사람 a사람 = new 사람();
-
-        a사람.setId(20);
-//        a사람.id =20;// 사람클래스의 전역변수 id가 private 으로 선언되있어서 못씀
-
-        System.out.println("번호 : " + a사람.getId());
-//        System.out.println("번호 : " + a사람.id);
-    }
-}
-class 사람 {
-    private int id = 11;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        int a, b, c;
+        try {
+            a = 10;
+            b = 0;
+            c = a / b; // 10 나누기 0 → 산술오류 ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("c = -1");  // 예외가 발생하여 이 문장이 수행된다.
+        }
     }
 }
