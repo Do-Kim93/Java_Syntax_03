@@ -1,56 +1,91 @@
 package org.example;
 
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        v2();
-//        v1(); 이게 배열사용버전
+        v4();
     }
-    static void v2() {
-        System.out.println("==v2==");
-        ArrayList articles = new ArrayList();
-        articles.add(new Article());
-        articles.add(new Article());
-        articles.add(new Article());
-        articles.add(new Article());
 
-        for(int i = 0; i < articles.size(); i++){
-            Article article = (Article) articles.get(i);//강제 형변환 해줘야함
+    static void v4() {
+        System.out.println("==v4==");
+        List<Article> articles = new ArrayList<>();
+        articles.add(new Article()); // index : 0 , id : 1
+        articles.add(new Article()); // index : 1 , id : 2
+        articles.add(new Article()); // index : 2 , id : 3
+
+        for (int i = 0; i < articles.size(); i++) {
+            Article article = articles.get(i);
             System.out.println(article.id);
         }
     }
+
+    static void v3() {
+        System.out.println("==v3==");
+        ArrayList<Article> articles = new ArrayList<>();
+        articles.add(new Article()); // index : 0 , id : 1
+        articles.add(new Article()); // index : 1 , id : 2
+        articles.add(new Article()); // index : 2 , id : 3
+        articles.add(new Article()); // index : 3 , id : 4
+
+        for (int i = 0; i < articles.size(); i++) {
+            Article article = articles.get(i);
+            System.out.println(article.id);
+        }
+    }
+
+    static void v2() {
+        System.out.println("==v2==");
+        ArrayList articles = new ArrayList();
+        articles.add(new Article()); // index : 0 , id : 1
+        articles.add(new Article()); // index : 1 , id : 2
+        articles.add(new Article()); // index : 2 , id : 3
+        articles.add(new Article()); // index : 3 , id : 4
+
+        for (int i = 0; i < articles.size(); i++) {
+            Article article = (Article) articles.get(i);
+            System.out.println(article.id);
+        }
+    }
+
     static void v1() {
-        System.out.println("===v1===");
-        int[] arr = new int[10];
-        Article[] articles = new Article[10];
+        System.out.println("==v1==");
+        Article[] articles = new Article[100];
+
         int articlesSize = 0;
+
         articles[0] = new Article();
         articlesSize++;
         articles[1] = new Article();
         articlesSize++;
         articles[2] = new Article();
         articlesSize++;
+        articles[3] = new Article();
+        articlesSize++;
+        articles[4] = new Article();
+        articlesSize++;
 
-        for (int i = 0; i < articlesSize; i++)
+        for (int i = 0; i < articlesSize; i++) {
             System.out.println(articles[i].id);
+        }
     }
 }
 
 class Article {
-    static int lastId; //클래스변수 모든 인스턴스가 공유함 이친구는 클래스내부에 존재함 객체 생성과 상관없음
+    static int lastId;
 
-    int id;//인스턴스변수 인스턴스변수는 각객체 내부에 존재함
+    int id;
     String regDate;
 
-    static {//스택틱 변수는 스태틱 생성자로 만들어야함.
+    static {
         lastId = 0;
     }
 
     Article() {
-        this(lastId+1 , "03-14");//생성자 안에서 다른 생성자 호출(실행), Constructor Call
-        lastId++;//생성자 안에서 다른 생성자를 호출하려면 무조건 첫줄에 있어야함
+        this(lastId + 1, "2025-12-12 12:12:12"); // 다른 생성자 호출(실행), Constructor Call
+        lastId++;
     }
 
     Article(int id, String regDate) {
