@@ -6,90 +6,23 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        v4();
-    }
+        List<Number> l = new ArrayList<>(); // 동적 할당(dynamic allocation)
+        l.add(10);
+        l.add(20);
+        l.add(30);
+        l.add(40);
+        l.add(50);
+        System.out.println(l);
+        System.out.println(l.size());
+        l.remove(3);//이러면 3번 인덱스에 있는 요소가 지워짐
+        l.add(1);//이렇게 하면 제일 뒷자리에가서 붙는다
+        l.add(2,55);//이렇게하면 원하는 자리에 삽입가능
+        l.set(1,66);//이러면 1번 인덱스에 있는 값이 66으로 바뀐다
+        //원하는 자리에 삽입할때는 한칸 건너 뛰기 불가능
+        System.out.println(l);
+        System.out.println(l.get(0));//이러면 입력한 입력한 값에있는 인덱스의 요소를 가져올수있다
+        System.out.println(l.subList(0,2));//이러면 인덱스0부터2에있는 값을 다가져올수있다.
 
-    static void v4() {
-        System.out.println("==v4==");
-        List<Article> articles = new ArrayList<>();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
 
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v3() {
-        System.out.println("==v3==");
-        ArrayList<Article> articles = new ArrayList<>();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v2() {
-        System.out.println("==v2==");
-        ArrayList articles = new ArrayList();
-        articles.add(new Article()); // index : 0 , id : 1
-        articles.add(new Article()); // index : 1 , id : 2
-        articles.add(new Article()); // index : 2 , id : 3
-        articles.add(new Article()); // index : 3 , id : 4
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
-        }
-    }
-
-    static void v1() {
-        System.out.println("==v1==");
-        Article[] articles = new Article[100];
-
-        int articlesSize = 0;
-
-        articles[0] = new Article();
-        articlesSize++;
-        articles[1] = new Article();
-        articlesSize++;
-        articles[2] = new Article();
-        articlesSize++;
-        articles[3] = new Article();
-        articlesSize++;
-        articles[4] = new Article();
-        articlesSize++;
-
-        for (int i = 0; i < articlesSize; i++) {
-            System.out.println(articles[i].id);
-        }
-    }
-}
-
-class Article {
-    static int lastId;
-
-    int id;
-    String regDate;
-
-    static {
-        lastId = 0;
-    }
-
-    Article() {
-        this(lastId + 1, "2025-12-12 12:12:12"); // 다른 생성자 호출(실행), Constructor Call
-        lastId++;
-    }
-
-    Article(int id, String regDate) {
-        this.id = id;
-        this.regDate = regDate;
     }
 }
