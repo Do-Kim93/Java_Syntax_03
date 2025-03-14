@@ -2,43 +2,42 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        사람 사람1 = new 김철수("김철수2");
-//        사람1.이름 = "김철수";
-        System.out.println("==사람1 정보==");
-        System.out.printf("이름 : %s\n", 사람1.이름);
-        System.out.printf("나이 : %d\n", 사람1.나이);
-        사람 사람2 = new 사람();
-        사람2.이름 = "이영희";
-        System.out.println("==사람1 정보==");
-        System.out.printf("이름 : %s\n", 사람2.이름);
-        System.out.printf("나이 : %d\n", 사람2.나이);
 
-        전사 전사 = new 전사();
-    }
-}
-class 전사{
+        int[] arr = new int[10];
 
-}
+        Article[] articles = new Article[10];
 
-class 사람 {
-    String 이름;
-    int 나이;
+        Article article1 = new Article();
+        articles[0] = article1;
 
-    사람() {//사람이라고 쓴이유는 생성자이름은 클래스명이랑 동일해야함
-        System.out.println("사람 생성자 실행됨");
-        this.나이 = 22;
+        Article article2 = new Article();
+        articles[1] = article2;
+
+        System.out.println(articles[0].id);
+        System.out.println(articles[1].id);
+
+        System.out.println(article1.id);
+        System.out.println(article2.id);
     }
 }
 
-class 김철수 extends 사람 {//상속받은 클래스의 생성자를 생성하면 부모클래스의 생성자도 자동으로 생성된다.
+class Article {
+    static int lastId; //클래스변수 모든 인스턴스가 공유함 이친구는 클래스내부에 존재함 객체 생성과 상관없음
 
-    김철수() {
-        System.out.println("김철수 생성자 실행됨");
-        this.이름 = "김철수";
+    int id;//인스턴스변수 인스턴스변수는 각객체 내부에 존재함
+    String regDate;
+
+    static {//스택틱 변수는 스태틱 생성자로 만들어야함.
+        lastId = 0;
     }
 
-    김철수(String 이름) {
-        System.out.println("김철수2 생성자 실행됨");
-        this.이름 = 이름;
+    Article() {
+        this(lastId+1 , "03-14");//생성자 안에서 다른 생성자 호출(실행), Constructor Call
+        lastId++;//생성자 안에서 다른 생성자를 호출하려면 무조건 첫줄에 있어야함
+    }
+
+    Article(int id, String regDate) {
+        this.id = id;
+        this.regDate = regDate;
     }
 }
