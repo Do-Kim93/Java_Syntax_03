@@ -1,18 +1,45 @@
 package org.example;
 
-
-import java.util.ArrayList;
-import java.util.List;
-//Exception e 예외처리 클래스중 가장 상위인 부모 클래스임 그래서 어떤오류가 발생할지 확실 모르면 이거를 catch문의 인자 값에 넣으면 됨
 public class Main {
     public static void main(String[] args) {
-        int a, b, c;
-        try {
-            a = 10;
-            b = 0;
-            c = a / b; // 10 나누기 0 → 산술오류 ArithmeticException
-        } catch (ArithmeticException e) {
-            System.out.println("c = -1");  // 예외가 발생하여 이 문장이 수행된다.
-        }
+        Person p1 = new Person(13);
+        Person p2 = new Person(13);
+
+        System.out.println(p1);
+        System.out.println(p2);
+
+        System.out.println("p1 == p2 : " + (p1 == p2)); // 리모컨끼리 비교, 당연히 false
+        System.out.println("p1.equals(p2) : " + p1.equals(p2));// 서로다른 메모리에 위치해서 false가 반환됨
+        // f -> 어떤 내용이 같을 때 같다는 취급을 할건지에 대한 명시 x
+        // 객체끼리 비교, Person 클래스에 equals 메서드를 오버라이드 하지 않아서 false
+        // 즉, 객체 비교를 하려면 해당 클래스에 equals 메서드를 오버라이드 해야함
+
+        String s1 = "하하"; // 문장 객체 생성됨
+        String s2 = "하하"; // 객체의 리모컨만 리턴, 이유 : 메모리 절약
+
+        System.out.println(s1);
+        System.out.println(s2);
+
+        System.out.println("s1 == s2 : " + (s1 == s2));
+        System.out.println("s1.equals(s2) : " + s1.equals(s2));
+
+        String s3 = new String("하하"); // 재활용 x
+        String s4 = new String("하하"); // 재활용 x
+
+        System.out.println("s3 : " + s3);
+        System.out.println("s4 : " + s4);
+
+        System.out.println("s3 == s4 : " + (s3 == s4));
+        System.out.println("s3.equals(s4) : " + s3.equals(s4));
+
     }
+}
+
+class Person {
+    private int age;
+
+    public Person(int age) {
+        this.age = age;
+    }
+
 }
