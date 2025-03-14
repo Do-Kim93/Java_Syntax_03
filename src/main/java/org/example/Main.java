@@ -1,23 +1,40 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+        v2();
+//        v1(); 이게 배열사용버전
+    }
+    static void v2() {
+        System.out.println("==v2==");
+        ArrayList articles = new ArrayList();
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
 
+        for(int i = 0; i < articles.size(); i++){
+            Article article = (Article) articles.get(i);//강제 형변환 해줘야함
+            System.out.println(article.id);
+        }
+    }
+    static void v1() {
+        System.out.println("===v1===");
         int[] arr = new int[10];
-
         Article[] articles = new Article[10];
+        int articlesSize = 0;
+        articles[0] = new Article();
+        articlesSize++;
+        articles[1] = new Article();
+        articlesSize++;
+        articles[2] = new Article();
+        articlesSize++;
 
-        Article article1 = new Article();
-        articles[0] = article1;
-
-        Article article2 = new Article();
-        articles[1] = article2;
-
-        System.out.println(articles[0].id);
-        System.out.println(articles[1].id);
-
-        System.out.println(article1.id);
-        System.out.println(article2.id);
+        for (int i = 0; i < articlesSize; i++)
+            System.out.println(articles[i].id);
     }
 }
 
