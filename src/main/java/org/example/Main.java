@@ -1,80 +1,36 @@
 package org.example;
-
 // 문제 : 아래가 실행되도록 해주세요.
-// 조건 : 배열을 사용할 수 없습니다.
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Main {
     public static void main(String[] args) {
-        사람인력관리소 a사람인력관리소 = new 사람인력관리소();
+        // 철수나이 20
+        // 영희나이 22
+        // 영수나이 33 로 저장하기 여러가지 표현방법
+        //맵은 넣을땐 불편하지만 가져올 땐 편함
+        Map<String, Integer> agesMap = new HashMap<>();
+        agesMap.put("철수 나이", 20); //index : 철수(key)
+        agesMap.put("영희 나이", 22);
+        agesMap.put("영수 나이", 33);
+        System.out.println("map철수 나이 : " + agesMap.get("철수 나이"));
+        System.out.println("map영희 나이 : " + agesMap.get("영희 나이"));
+        System.out.println("map영수 나이 : " + agesMap.get("영수 나이"));
 
-        a사람인력관리소.add사람("홍길순", 33);
-        // 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
-        a사람인력관리소.add사람("홍길동", 20);
-        // 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
-        a사람인력관리소.add사람("임꺽정", 30);
-        // 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
+        //ArrayList<>()는 공백을 허용하지 않는다. 즉 remove를 하면 한자리씩 밀려와서 빈자리를 채운다.
+        //ArrayList<>()는 넣을땐 편한데 가져올땐 불편함
+        List<Integer> ages = new ArrayList<>();
+        ages.add(20); // index : 0
+        ages.add(22);
+        ages.add(33);
 
-        사람 a사람1 = a사람인력관리소.get사람(1);
-        a사람1.자기소개();
-        // 저는 1번, 홍길순, 33살 입니다.
+        System.out.println("철수 나이 : " + ages.get(0));
+        System.out.println("영희 나이 : " + ages.get(1));
+        System.out.println("영수 나이 : " + ages.get(2));
 
-        사람 a사람2 = a사람인력관리소.get사람(2);
-        a사람2.자기소개();
-        // 저는 2번, 홍길동, 20살 입니다.
-
-        사람 a사람3 = a사람인력관리소.get사람(3);
-        a사람3.자기소개();
-        // 저는 3번, 임꺽정, 30살 입니다.
     }
 }
-class 사람인력관리소{//번호 지정해주는 역활
-    사람 a사람0; //사람모양을 가진 변수 a사람0를 만들어줌
-    사람 a사람1; // 만들어주는 이유는 add사람에서 받은 정보를 저장하기 위해서
-    사람 a사람2;
 
-    int 마지막_사람1_번호 = 0; // 전역변수로 만드는 이유는 객체를 생성할때마다 초기화 되니까
-
-    void add사람(String 이름, int 나이){
-
-        int 번호 = 마지막_사람1_번호 + 1; // 번호를 1씩 늘리기 위한 코드
-        // 한 사람의 정보를 한묶음으로 쓰기위해 사람 객체를 생성하고
-        // 사람객체의 전역변수에 받은 인자값을 저장한다
-        사람 a사람 = new 사람();// 사람 객체 생성
-        a사람.번호 = 번호;//받은 번호 넣기
-        a사람.이름 = 이름;
-        a사람.나이 = 나이;
-//        int 사람1_번호 = 1;
-//        String 사람1_이름 = 이름;
-//        int 사람1_나이 = 나이;
-        if (번호 == 1) {
-            a사람0 = a사람;
-        } else if (번호 == 2) {
-            a사람1 = a사람;
-        } else if (번호 == 3) {
-            a사람2 = a사람;
-        }
-
-        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", 나이, 번호, 이름);
-        마지막_사람1_번호++;
-    }
-
-    사람 get사람(int 번호) {
-        if (번호 == 1) {
-            return a사람0;
-        } else if (번호 == 2) {
-            return a사람1;
-        } else if (번호 == 3) {
-            return a사람2;
-        }
-        return null;
-    }
-}
-class 사람{
-    int 번호;//사람인력관리소 클래스에서 지정해주는 번호
-    String 이름;
-    int 나이;
-
-    void 자기소개() {
-        System.out.printf("저는 %d번, %s, %d살 입니다.\n", this.번호, this.이름, this.나이);
-    }
-}
